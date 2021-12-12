@@ -6,7 +6,7 @@
 
 ## Build and Run 
 * Dowloand and extract files in Sudoku-master.zip folder. 
-* For build the projects, In the directory where Sudoku.sln is located, the following command is executed by opening command promt or powershell. After run bellow command, web project will up.(Docker must run before that command)
+* For run the projects, In the directory where Sudoku.sln is located, the following command is executed by opening command promt or powershell. After run bellow command, web project will up.(Docker must run before that command)
 ```bash
 docker-compose -f "ci/docker-compose.yml" -f "ci/docker-compose.override.yml" -p dockercomposesudokuweb --ansi never up -d
 ``` 
