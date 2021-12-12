@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Sudoku";
+}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="gameConsole">
+                <div class="row mb-3">
+                    <div class="col-lg-8">
+                        <input class="form-control form-control" id="fileSudoku" type="file">
+                    </div>
+                    <div class="col-lg-4">
+                        <button id="btnUpload" type="button" class="btn btn-success col-sm-12">Upload File</button>
+                    </div>
+                </div>
+               <div class="col-sm-4 form-check form-switch">
+                    <input id="switchUnique" class="form-check-input" type="checkbox">
+                    <label class="form-check-label" for="switchUnique">Check Unique</label>
+               </div>
+
+                <div class="alert alert-warning" role="alert">
+                    Before upload your file you should be sure that
+                    <b>
+                        "The text file should be build by 9 rows with 9 characters each followed by an End of Line char.
+                        Each character is either a number (1-9) or '.' to symbolize an empty box."
+                    </b>
+                </div>
+
+                <div id="error" class="alert alert-danger" role="alert" style="display:none">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div id="gameBoard">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/sudoku/solver.js"></script>
+}

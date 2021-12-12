@@ -1,0 +1,32 @@
+﻿ @model Sudoku.Common.SolverViewModel
+ @{
+    string borderStyle = "2px solid black";
+    string backgroundStyle = "";
+}
+
+<div class="alert alert-warning" role="alert">
+    Uploaded file sudoku's diffulty level is : <b> @Model.Diffuculty.ToString() </b>
+</div>
+
+<table>
+    @for (int row = 1; row < 10; row++)
+    {
+        string bottomBorder = row % 3 == 0 ? ";border-bottom:" + borderStyle : "";
+        string topBorder = row == 1 ? ";border-top:" + borderStyle : "";
+
+        <tr>
+            @for (int column = 1; column < 10; column++)
+            {
+                backgroundStyle = Model.LoadedBoard[row - 1, column - 1] != 0 ? "background-color: #72e772" : "";
+
+                string rightBorder = column % 3 == 0 ? ";border-right:" + borderStyle : "";
+                string leftBorder = column == 1 ? ";border-left:" + borderStyle : "";
+
+                <td style="@rightBorder @leftBorder @topBorder @bottomBorder">
+                    <input class="cell"  type="text" disabled value="@Model.SolvedBoard[row - 1, column - 1]" style="@backgroundStyle"  />
+                </td>
+            }
+        </tr>
+    }
+</table>
+

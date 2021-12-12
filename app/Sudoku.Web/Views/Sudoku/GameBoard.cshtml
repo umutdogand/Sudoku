@@ -1,0 +1,32 @@
+﻿ @model Sudoku.Common.BoardViewModel
+ @{
+    string borderStyle = "2px solid black";
+}
+<table>
+    @for (int row = 1; row < 10; row++)
+    {
+        string bottomBorder = row % 3 == 0 ? ";border-bottom:"+borderStyle : "";
+        string topBorder = row == 1 ? ";border-top:"+borderStyle : "";
+        string rowId = "row" + row;
+
+        <tr id="@rowId">
+            @for (int column = 1; column < 10; column++)
+            {
+                string rightBorder = column % 3 == 0 ? ";border-right:"+borderStyle : "";
+                string leftBorder = column == 1 ? ";border-left:"+borderStyle : "";
+
+                string columnId = "column" + row + column;
+                string cellId = "cell" + row + column;
+
+                var cellInfo = Model.Board[row-1,column-1] != 0 ? "value="+Model.Board[row-1,column-1]+" disabled" : "";
+
+                <td id="@columnId" style="@rightBorder @leftBorder @topBorder @bottomBorder">
+                    <input id="@cellId" class="cell" data-row="@row" data-column="@column" type="text" autocomplete="off" @cellInfo/>
+                </td>
+            }
+        </tr>
+    }
+</table>
+
+<script src="~/js/sudoku/gameboard.js"></script>
+ 

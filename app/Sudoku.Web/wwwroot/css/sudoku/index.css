@@ -1,0 +1,10 @@
+.cell {
+    text-align: center;
+    font-weight: bold;
+    width: 40px;
+    height: 40px
+}
+
+input:focus {
+    background-color: yellow;
+}

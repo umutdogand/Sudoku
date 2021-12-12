@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  sudoku.web:
+    image: ${DOCKER_REGISTRY-}sudokuweb
+    build:
+      context: ..
+      dockerfile: ./app/Sudoku.Web/Dockerfile
+    
